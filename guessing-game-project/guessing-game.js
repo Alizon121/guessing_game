@@ -3,9 +3,9 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
-
+debugger
 let secretNumber;
-
+let numAttempts = 5;
 
 function checkGuess(num) {
 if (num > secretNumber) {
@@ -30,7 +30,13 @@ function askGuess () {
             console.log("You win!");
             rl.close()
         } else {
+            if (numAttempts > 1) {
+            numAttempts-=1;
             askGuess();
+            } else {
+                console.log("You Lose!")
+                rl.close()
+            }
         }
     })
 }
