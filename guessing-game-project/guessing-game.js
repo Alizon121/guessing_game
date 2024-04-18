@@ -1,7 +1,6 @@
 let secretNumber = 15;
 
 const checkGuess = (num) => {
-num = Math.abs(num)
 if (num > secretNumber) {
     console.log("Too high.")
     return false;
@@ -11,8 +10,6 @@ if (num > secretNumber) {
 } else {
     console.log("Correct!");
     return true;
-
 }
 }
 
-console.log(checkGuess(10))
