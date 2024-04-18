@@ -24,9 +24,15 @@ if (num > secretNumber) {
 function askGuess () {
     rl.question("Enter a guess: ", (answer) => {
         console.log(`Your guess is: ${answer}`)
-        answer = Number(answer);
-        checkGuess(answer);
-        rl.close()
+        let result = Number(answer);
+        if (checkGuess(answer) === true) {
+            console.log("You win!");
+            rl.close()
+        } else {
+            askGuess();
+        }
+        // rl.close()
     })
 }
 
+askGuess()
