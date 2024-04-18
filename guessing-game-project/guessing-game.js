@@ -4,9 +4,13 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
+let secretNumber = randomInRange(0, 100);
 
-
-let secretNumber = 15;
+function randomInRange(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+  }
 
 function checkGuess(num) {
 if (num > secretNumber) {
@@ -31,8 +35,7 @@ function askGuess () {
         } else {
             askGuess();
         }
-        // rl.close()
     })
 }
 
-askGuess()
+console.log(askGuess())
