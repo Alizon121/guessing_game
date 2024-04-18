@@ -5,7 +5,7 @@ const rl = readline.createInterface({
 });
 debugger
 let secretNumber;
-let numAttempts = 5;
+let numAttempts;
 
 function checkGuess(num) {
 if (num > secretNumber) {
@@ -48,9 +48,6 @@ function randomInRange(min, max) {
     // The maximum is inclusive and the minimum is inclusive
 }
 
-
-
-
 function askRange() {
 // Nested questions
 rl.question("What would you like the minimum range to be? ", minAnswer => {
@@ -67,6 +64,12 @@ askGuess();
 })
 }
 
+function askLimit() {
+rl.question("How many attempts would you like to guess the correct answer? ", answer => {
+    console.log("You have " + answer + " attempts to guess correctly");
+    numAttempts = Number(answer);
+    askRange();
     
-
-console.log(askRange());
+})
+}
+askLimit()
